@@ -42,10 +42,10 @@ build/
 !**/src/test/**/build/
 
 ### Terraform
-/infrastructure/terraform/environments/demo/.terraform/
-/infrastructure/terraform/environments/demo/.terraform.*
-/infrastructure/terraform/environments/demo/account.json
-/infrastructure/terraform/environments/demo/plan.txt
-/infrastructure/terraform/environments/demo/terraform.tfstate
-/infrastructure/terraform/environments/demo/terraform.tfstate.backup
-/infrastructure/terraform/environments/demo/*.zip
+/infrastructure/environments/demo/.terraform/
+/infrastructure/environments/demo/.terraform.*
+/infrastructure/environments/demo/account.json
+/infrastructure/environments/demo/plan.txt
+/infrastructure/environments/demo/terraform.tfstate
+/infrastructure/environments/demo/terraform.tfstate.backup
+/infrastructure/environments/demo/*.zip
