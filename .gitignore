@@ -45,3 +45,7 @@ build/
 /infrastructure/terraform/environments/demo/.terraform/
 /infrastructure/terraform/environments/demo/.terraform.*
 /infrastructure/terraform/environments/demo/account.json
+/infrastructure/terraform/environments/demo/plan.txt
+/infrastructure/terraform/environments/demo/terraform.tfstate
+/infrastructure/terraform/environments/demo/terraform.tfstate.backup
+/infrastructure/terraform/environments/demo/*.zip
