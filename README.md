@@ -53,6 +53,11 @@ gcloud pubsub topics publish demo-pubsub-topic --message="fail"
 gcloud pubsub subscriptions pull demo-deadletter-subscription
 ```
 
+**Cleanup (delete all resources created via terraform)  
+```shell
+terraform plan -destroy -out=plandestroy.txt
+terraform plan -destroy -out=plandestroy.txt
+```
 **Prerequisite**  
 * Gcloud  
 * Python 3.10  
