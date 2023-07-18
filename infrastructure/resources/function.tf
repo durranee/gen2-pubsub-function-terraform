@@ -1,3 +1,4 @@
+## function deployment
 resource "google_cloudfunctions2_function" "cloud-function" {
   name = var.function-name
   location = var.gcp-region
@@ -25,7 +26,6 @@ resource "google_cloudfunctions2_function" "cloud-function" {
     event_type     = "google.cloud.pubsub.topic.v1.messagePublished"
     pubsub_topic   = google_pubsub_topic.function-topic.id
     retry_policy   = "RETRY_POLICY_RETRY"
-
   }
 
   depends_on = [
