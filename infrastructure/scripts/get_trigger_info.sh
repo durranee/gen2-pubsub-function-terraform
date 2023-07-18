@@ -6,6 +6,8 @@ trigger_name=$(gcloud functions describe ${FUNCTION_NAME} --region=${REGION} --f
 trigger_topic=$(gcloud eventarc triggers describe ${trigger_name} --location ${REGION} --format='value(transport.pubsub.topic)')
 trigger_subscription=$(gcloud eventarc triggers describe ${trigger_name} --location ${REGION} --format='value(transport.pubsub.subscription)')
 
+gcloud pubsub subscriptions update ${trigger_subscription} --dead-letter-topic=${DL_TOPIC}
+
 jq -n \
     --arg trigger_subscription "$trigger_subscription" \
     --arg trigger_topic "$trigger_topic" \
