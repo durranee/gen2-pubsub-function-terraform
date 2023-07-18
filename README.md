@@ -17,10 +17,10 @@ cd infrastructure/environments/demo
 terraform init -input=false
 
 ## output terraform plan
-terraform100 plan -out=plan.txt
+terraform plan -out=plan.txt
 
 ## apply terraform plan
-terraform100 apply "plan.txt"
+terraform apply "plan.txt"
 
 ```
 
