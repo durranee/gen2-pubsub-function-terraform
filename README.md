@@ -17,10 +17,10 @@ cd infrastructure/environments/demo
 terraform init -input=false
 
 ## output terraform plan
-terraform100 plan -out=plan.txt
+terraform plan -out=plan.txt
 
 ## apply terraform plan
-terraform100 apply "plan.txt"
+terraform apply "plan.txt"
 
 ```
 
@@ -39,6 +39,18 @@ gcloud pubsub topics publish demo-pubsub-topic --message="fail"
 **Read logs**
 ```shell
 gcloud beta functions logs read  demo-pubsub-function --region=europe-west2 --gen2
+```
+
+**Trigger the function to fail**  
+*this will cause the code to raise an uncaught exception and exit the function, message should then end up in the dead-letter topic*
+```shell
+gcloud pubsub topics publish demo-pubsub-topic --message="fail"
+```
+
+**Check pubsub dead-letter for failed messages**  
+*due to retry and backoff mechanism, this might take a couple of minutes to come through*
+```shell
+gcloud pubsub subscriptions pull demo-deadletter-subscription
 ```
 
 **Prerequisite**  
