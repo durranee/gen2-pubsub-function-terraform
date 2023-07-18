@@ -1,0 +1,51 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+coverage-report/report/
+maven-wrapper.jar
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.classpath
+.project
+.loadpath
+.recommenders
+
+# Visual Studio Code
+.factorypath
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Terraform
+/infrastructure/environments/demo/.terraform/
+/infrastructure/environments/demo/.terraform.*
+/infrastructure/environments/demo/account.json
+/infrastructure/environments/demo/plan.txt
+/infrastructure/environments/demo/terraform.tfstate
+/infrastructure/environments/demo/terraform.tfstate.backup
+/infrastructure/environments/demo/*.zip
