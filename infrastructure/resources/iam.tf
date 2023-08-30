@@ -14,12 +14,14 @@ data "external" "trigger-info" {
   ]
 }
 
+data "google_project" "project" {}
+
 ## assign pubsub.publisher role to gcp project pubsub service account
 resource "google_pubsub_topic_iam_member" "deadletter-publisher" {
   project = var.gcp-project
   topic = google_pubsub_topic.deadletter-topic.name
   role = "roles/pubsub.publisher"
-  member  = "serviceAccount:service-${var.gcp-project-number}@gcp-sa-pubsub.iam.gserviceaccount.com"
+  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-pubsub.iam.gserviceaccount.com"
   depends_on = [
     google_pubsub_topic.deadletter-topic
   ]
@@ -30,7 +32,7 @@ resource "google_pubsub_subscription_iam_member" "deadletter-subscriber-role" {
   project = var.gcp-project
   subscription = data.external.trigger-info.result.trigger_subscription
   role = "roles/pubsub.subscriber"
-  member  = "serviceAccount:service-${var.gcp-project-number}@gcp-sa-pubsub.iam.gserviceaccount.com"
+  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-pubsub.iam.gserviceaccount.com"
   depends_on = [
     data.external.trigger-info,
     google_cloudfunctions2_function.cloud-function

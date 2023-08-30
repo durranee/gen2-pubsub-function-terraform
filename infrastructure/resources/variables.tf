@@ -10,6 +10,3 @@ variable "gcp-region" {
   default = "europe-west2"
 }
 
-variable "gcp-project-number" {
-  default = "1234567890" ## TODO: YOUR GCP PROJECT NUMBER
-}
